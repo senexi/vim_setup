@@ -1,7 +1,10 @@
 #!/bin/bash
 
-cp vimrc ~/.vimrc
-VIM_BUNDLE=~/.vim/pack/bundle/start
+HOMEPATH=${1:-~} 
+
+echo "export TERM=xterm-256color" >> $HOMEPATH/.bashrc
+cp vimrc $HOMEPATH/.vimrc
+VIM_BUNDLE=$HOMEPATH/.vim/pack/bundle/start
 git clone https://github.com/fatih/vim-go.git ${VIM_BUNDLE}/vim-go && \
 git clone https://github.com/itchyny/lightline.vim  ${VIM_BUNDLE}/lightline && \
 git clone https://github.com/raimondi/delimitmate ${VIM_BUNDLE}/delimitmate && \
